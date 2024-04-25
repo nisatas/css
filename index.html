@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.SINIF İNGİLİZCE</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    button {
+        display: inline-block;
+        border-radius: 4px;
+      
+        border: none;
+        
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+        text-decoration: none;
+    }
+    .btn {
+        background: none;
+        border: 2px solid #2c3e50;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-transform: uppercase;
+        padding: 12px 20px;
+        min-width: 200px;
+        margin: 10px;
+        font-size: 20px;
+        color: aliceblue;
+        position: relative;
+        transition: color 0.4s linear;
+        text-decoration: none;
+
+    }
+    .btn a{
+        text-decoration: none;
+        color: #fff;
+    }
+    .btn:hover {
+        color: white;
+
+    }
+    .btn::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #2c3e50;
+        z-index: -1;
+        transition: transform 0.5s;
+        transform-origin: 0 0;
+        transition-timing-function: cubic-bezier(0.5, 1.4, 0.4, 0.7);
+        transform: scaleX(0);
+
+    }
+    .btn:hover::before {
+        transform: scaleX(1);
+    }
+    .button span {
+
+        cursor: pointer;
+
+        display: inline-block;
+
+        position: relative;
+
+        transition: 0.5s;
+        
+        }
+
+        .button span:after {
+
+        content: '\00bb';
+
+        position: absolute;
+
+        opacity: 0;
+
+        top: 0;
+
+        right: -20px;
+
+        transition: 0.5s;
+        }
+
+        .button:hover span {
+
+        padding-right: 25px;
+        }
+
+        .button:hover span:after {
+
+        opacity: 1;
+
+        right: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: black;
+
+        }
+        .main-header__logo {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 28px;
+            line-height: 1px;
+            margin: 0 30px ;
+            padding: 20px ;
+            bottom: 0;
+            display: inline-block;
+            position: absolute;
+        }
+        .main-nav__item a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .main-nav__item a:hover, .main-nav__item:hover::before {
+            color: #637E76;
+        }      
+
+        .main-nav__item:active::before, .main-nav__item a:active {
+            color: #fff;
+        }
+
+        .main-nav__item::before {
+            content: '\2022';
+            color: #fff;
+        }
+
+        .main-nav__item--login a {
+            color: #fff;
+            background-color: #637E76;
+            padding: 4px 16px;
+            border-radius: 8px;
+            border: 2px solid #fff;
+        }
+
+        .main-nav__item--login a:hover {
+            color: #637E76;
+            border: 2px solid #637E76;
+            background-color: #fff;
+        }
+
+        .main-nav__item--login::before {
+            content:none;
+        }
+        .main-header {
+            background-color: #637E76;
+            padding: 8px 16px;
+            position: fixed;
+            z-index: 1;
+            width: 100%;
+            top: 0;
+            
+            
+        }
+
+        .main-nav {
+            display: inline-block;
+            width: calc(100% - 101px);
+            text-align: right;
+            font-family: 'Roboto', sans-serif;
+            
+        }
+        .main-nav__items {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav__item {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        li a {
+            top: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body bgcolor="#A9B388" >
+    <header class="main-header">
+        <a href="#" class="main-header__logo">2.Sınıf İngilizce Kartlar</a>
+        <nav class="main-nav">
+            <ul class="main-nav__items">
+                
+                <li class="main-nav__item main-nav__item--login">
+                    <a href="kelimetahmin.html">Kelime Tahmin Oyunu</a>
+                </li>
+            </ul>
+        </nav>
+    </header>    
+    <div class="container">
+        <div class="container" id="content">
+            <h1>Hoş Geldiniz!</h1>
+            <h2>Oyunun amacı minik dostlarımıza ingilizce öğrenmeyi daha keyifli hale getirmektir.</h2>
+            <button class="btn"><a href="FRIENDS.html">OYUNA GİRİŞ</a></button>
+        </div>
+        
+    </div>  
+    <footer>
+    <div class="elementor-widget-container">
+        <p class="m-0 text-center">© 2024 Nisa ATAŞ &#8211; Tüm Hakları Saklıdır.</p>						</div>
+    </footer>
+</div>
+</body>
+</html>
