@@ -1,0 +1,278 @@
+<html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title>Kelime Tahmin Oyunu</title>
+      <link rel="stylesheet" href="css/style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #2D3250;
+}
+.container{
+  width: 500px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 15px 20px rgba(0,0,0,0.2);
+}
+.container h1{
+  font-size: 24px;
+  font-weight: 500;
+  padding: 20px;
+  border-bottom: 1px solid #e0dcdc;
+}
+.container .content{
+  margin: 25px;
+}
+.content .girisler{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.girisler input{
+  height: 60px;
+  width: 60px;
+  margin: 6px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #18b4f1;
+  text-align: center;
+  border-radius: 6px;
+  background: none;
+  pointer-events: none;
+  text-transform: uppercase;
+  border: 1px solid #adabab;
+}
+.yaziInput {
+  opacity: 0;
+  z-index: -999;
+  position: absolute;
+  pointer-events: none;
+}
+.girisler input:first-child{
+  margin-left: 0px;
+}
+.content .detaylar{
+  margin: 20px;
+}
+.detaylar p{
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.content .sifirla{
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  padding: 15px;
+  font-size: 19px;
+  border-radius: 6px;
+  background: #2D3250;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+}
+.content .sifirla:hover{
+  background: #26a3d4;
+}
+@media (max-width: 460px) {
+  .container {
+    width: 100%;
+  }
+  .container h1{
+    font-size: 20px;
+    padding: 14px 16px;
+  }
+  .container .content{
+    margin: 25px
+  }
+  .girisler input{
+    height: 45px;
+    width: 45px;
+    margin: 5px;
+    font-size: 20px;
+  }
+  .detaylar p{
+    font-size: 15px;
+  }
+  .content .sifirla{
+    padding: 15px;
+    font-size: 14px;
+  }
+}
+    header{
+        color: #fff;
+        text-align: center;
+        position: absolute;
+        top: 30px;
+    }
+      </style>
+    </head>
+  <body>
+    <header>
+        <h1>Kelimelerin ipuçları verilmiştir. Cevaplar İngilizcedir.Başarılar!</h1>
+    </header>
+    <div class="container">
+      <h1>Kelimeyi Bul</h1>
+      <div class="content">
+        <input type="text" class="yaziInput" maxlength="1">
+        <div class="girisler"></div>
+        <div class="detaylar">
+          <p class="ipucu">İpucu: <span></span></p>
+          <p class="kalanHak">Kalan Tahmin: <span></span></p>
+          <p class="yanlisHarf">Yanlış Harfler: <span></span></p>
+        </div>
+        <button class="sifirla">Yeni Oyun</button>
+      </div>
+    </div>
+    <script>
+        let kelimeListesi = [
+    {
+        kelime: "blue",
+        ipucu: "Bir renk örnek: purple"
+    },
+    {
+        kelime: "banana",
+        ipucu: "Sarı renkli meyve"
+    },
+    {
+        kelime: "nose",
+        ipucu: "Yüzümüzdeki bir organ"
+    },
+    {
+        kelime: "ear",
+        ipucu: "Duyu organı"
+    },
+    {
+        kelime: "fish",
+        ipucu: "Suda yaşayan bir hayvan"
+    },
+    {
+        kelime: "parrot",
+        ipucu: "Kanatları olan bir hayvan"
+    },
+    {
+        kelime: "four",
+        ipucu: "bir rakam"
+    },
+    
+   
+    {
+        kelime: "brown",
+        ipucu: "Bir göz rengi"
+    },
+    {
+        kelime: "hideandseek",
+        ipucu: "Arka bahçe oyunu"
+    },
+    {
+        kelime: "board",
+        ipucu: "Sınıf içinde bir eşya"
+    },
+    {
+        kelime: "pencilcase",
+        ipucu: "çantanın içine koyulan bir eşya"
+    },
+    {
+        kelime: "yellow",
+        ipucu: "Güneşin rengi"
+    },
+    {
+        kelime: "handball",
+        ipucu: "bir spor dalı"
+    },
+    {
+        kelime: "salad",
+        ipucu: "bir yiyecek"
+    },
+    {
+        kelime: "snake",
+        ipucu: "sürüngen bir hayvan"
+    },
+    {
+        kelime: "apple",
+        ipucu: "yeşil renkli bir meyve "
+    },
+    
+]
+let kelimelik;
+let maksTahmin;
+let yanlisHarfler = [];
+let dogruHarfler = [];
+
+const typingInput = document.querySelector(".yaziInput");
+const sifirla = document.querySelector(".sifirla");
+const girisler = document.querySelector(".girisler");
+const kalanHak = document.querySelector(".kalanHak span");
+const yanlisHarf = document.querySelector(".yanlisHarf span");
+const ipucuTag = document.querySelector(".ipucu span");
+
+function oyunOlustur(e) {
+    let key = e.target.value.toLowerCase();
+    if(key.match(/^[A-Za-z]+$/) && !yanlisHarfler.includes(` ${key}`) && !dogruHarfler.includes(key)) {
+        if(kelimelik.includes(key)) {
+            for (let i = 0; i < kelimelik.length; i++) {
+                if(kelimelik[i] == key) {
+                    dogruHarfler += key;
+                    girisler.querySelectorAll("input")[i].value = key;
+                }
+            }
+        } else {
+            maksTahmin--;
+            yanlisHarfler.push(` ${key}`);
+        }
+        kalanHak.innerText = maksTahmin;
+        yanlisHarf.innerText = yanlisHarfler;
+    }
+    typingInput.value = "";
+
+    setTimeout(() => {
+        if(dogruHarfler.length === kelimelik.length) {
+            alert(`Tebrikler! Kelimeyi buldun ${kelimelik.toUpperCase()}`);
+            return kelimeGetir();
+        } else if(maksTahmin < 1) {
+            alert("Oyun Bitti! Tahmin hakkÄ±n kalmadÄ±");
+            for(let i = 0; i < kelimelik.length; i++) {
+                girisler.querySelectorAll("input")[i].value = kelimelik[i];
+            }
+        }
+    }, 100);
+}
+
+function kelimeGetir() {
+    let rasgele = kelimeListesi[Math.floor(Math.random() * kelimeListesi.length)];
+    kelimelik = rasgele.kelime;
+    maksTahmin = kelimelik.length >= 5 ? 8 : 6;
+    dogruHarfler = []; yanlisHarfler = [];
+    ipucuTag.innerText = rasgele.ipucu;
+    kalanHak.innerText = maksTahmin;
+    yanlisHarf.innerText = yanlisHarfler;
+
+    let html = "";
+    for (let i = 0; i < kelimelik.length; i++) {
+        html += `<input type="text" disabled>`;
+        girisler.innerHTML = html;
+    }
+}
+
+girisler.addEventListener("click", () => typingInput.focus());
+sifirla.addEventListener("click", kelimeGetir);
+document.addEventListener("keydown", () => typingInput.focus());
+typingInput.addEventListener("input", oyunOlustur);
+
+kelimeGetir();
+    </script>
+    
+  </body>
+</html>
