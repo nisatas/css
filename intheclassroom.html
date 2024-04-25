@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÜNİTE-1 WORDS - Frontend/Backend Cards</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #B6BBC4;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    #unit-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      color: palevioletred;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .card {
+      width: 250px;
+      height: 200px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      margin: 10px;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    .front,
+    .back {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .back {
+      display: none;
+    }
+
+    .card.flipped .front {
+      display: none;
+    }
+
+    .card.flipped .back {
+      display: flex;
+    }
+
+    #floating-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    #anasayfa {
+      margin-left: 20px;
+      text-decoration: none;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body bgcolor="#B6BBC4">
+
+<div id="unit-title">IN THE CLASSROOM (SINIFTA)</div>
+
+<div class="card-container">
+  <!-- Create 20 cards statically -->
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>TURN RIGHT</h3>
+      </div>
+      <div class="back">
+        <h3>SAĞA DÖN</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>TURN LEFT</h3>
+      </div>
+      <div class="back">
+        <h3>SOLA DÖN</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>CLOSE THE DOOR</h3>
+      </div>
+      <div class="back">
+        <h3>KAPIYI KAPAT</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>SIT DOWN</h3>
+      </div>
+      <div class="back">
+        <h3>OTUR</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>STAND UP</h3>
+      </div>
+      <div class="back">
+        <h3>AYAĞA KALK</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>OPEN THE WINDOW</h3>
+      </div>
+      <div class="back">
+        <h3>PENCEREYİ AÇ</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>EXCUSE ME</h3>
+      </div>
+      <div class="back">
+        <h3>AFEDERSİN</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>I AM SORRY</h3>
+      </div>
+      <div class="back">
+        <h3>ÜZGÜNÜM</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>COLOUR THE PICTURE</h3>
+      </div>
+      <div class="back">
+        <h3>RESMİ BOYA</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>SAY THAT AGAIN</h3>
+      </div>
+      <div class="back">
+        <h3>TEKRAR SÖYLE</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>YOU ARE WELCOME</h3>
+      </div>
+      <div class="back">
+        <h3>RİCA EDERİM</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>CUT THE PAPER</h3>
+      </div>
+      <div class="back">
+        <h3>KAĞIDI KES</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>CLOSE YOUR BOOK</h3>
+      </div>
+      <div class="back">
+        <h3>KİTABINI KAPAT</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>STICK THE POSTER</h3>
+      </div>
+      <div class="back">
+        <h3>POSTERİ YAPIŞTIR</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>HOW OLD ARE YOU?</h3>
+      </div>
+      <div class="back">
+        <h3>KAÇ YAŞINDASIN</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>I LOVE YOU</h3>
+      </div>
+      <div class="back">
+        <h3>SENİ SEVİYORUM</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>HAPPY BIRTHDAY TO YOU</h3>
+      </div>
+      <div class="back">
+        <h3>DOĞUM GÜNÜN KUTLU OLSUN</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>I'M EIGHT YEARS OLD</h3>
+      </div>
+      <div class="back">
+        <h3>8 YAŞINDAYIM</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>PENCIL CASE</h3>
+      </div>
+      <div class="back">
+        <h3>KALEM KUTUSU</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>SCHOOL BAG</h3>
+      </div>
+      <div class="back">
+        <h3>OKUL ÇANTASI</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>BOARD</h3>
+      </div>
+      <div class="back">
+        <h3>TAHTA</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>CHAIR</h3>
+      </div>
+      <div class="back">
+        <h3>SANDALYE</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>TABLE</h3>
+      </div>
+      <div class="back">
+        <h3>MASA</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>RULER</h3>
+      </div>
+      <div class="back">
+        <h3>CETVEL</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>CRAYON</h3>
+      </div>
+      <div class="back">
+        <h3>PASTEL BOYA</h3>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<button id="floating-button">
+   <a href="test2.html">Teste Başla</a>
+   <a id="anasayfa" href ="index.html">Anasayfa</a>
+</button> 
+
+<script>
+  function flipCard(card) {
+    card.classList.toggle('flipped');
+  }
+</script>
+
+</body>
+</html>
