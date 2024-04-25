@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÜNİTE-1 WORDS - Frontend/Backend Cards</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #B6BBC4;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    #unit-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      color: palevioletred;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .card {
+      width: 250px;
+      height: 200px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      margin: 10px;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    .front,
+    .back {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .back {
+      display: none;
+    }
+
+    .card.flipped .front {
+      display: none;
+    }
+
+    .card.flipped .back {
+      display: flex;
+    }
+
+    #floating-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body bgcolor="#B6BBC4">
+
+<div id="unit-title">COLOURS(RENKLER) - AT THE PLAYGROUND(OYUN PARKINDA)</div>
+
+<div class="card-container">
+  <!-- Create 20 cards statically -->
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>GREEN</h3>
+      </div>
+      <div class="back">
+        <h3>YEŞİL</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>PURPLE</h3>
+      </div>
+      <div class="back">
+        <h3>MOR</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>ORANGE</h3>
+      </div>
+      <div class="back">
+        <h3>TURUNCU</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>WHITE</h3>
+      </div>
+      <div class="back">
+        <h3>BEYAZ</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>BLACK</h3>
+      </div>
+      <div class="back">
+        <h3>SİYAH</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>RED</h3>
+      </div>
+      <div class="back">
+        <h3>KIRMIZI</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>BLUE</h3>
+      </div>
+      <div class="back">
+        <h3>MAVİ</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>YELLOW</h3>
+      </div>
+      <div class="back">
+        <h3>SARI</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>PINK</h3>
+      </div>
+      <div class="back">
+        <h3>PEMBE</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>BROWN</h3>
+      </div>
+      <div class="back">
+        <h3>KAHVERENGİ</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>WHAT COLOR IS IT?</h3>
+      </div>
+      <div class="back">
+        <h3>BU NE RENK?</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>I Like</h3>
+      </div>
+      <div class="back">
+        <h3>SEVERİM</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>PLAY HIDE AND SEEK</h3>
+      </div>
+      <div class="back">
+        <h3>SAKLAMBAÇ OYNAMAK</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>WALK</h3>
+      </div>
+      <div class="back">
+        <h3>YÜRÜMEK</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>DANCE</h3>
+      </div>
+      <div class="back">
+        <h3>DANS ETMEK</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>SWING</h3>
+      </div>
+      <div class="back">
+        <h3>SALLANMAK</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>SING</h3>
+      </div>
+      <div class="back">
+        <h3>ŞARKI SÖYLEMEK</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>SKIP ROPE</h3>
+      </div>
+      <div class="back">
+        <h3>ATLAMA İPİ</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>RIDE A BIKE</h3>
+      </div>
+      <div class="back">
+        <h3>BİSİKLET SÜRMEK</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>DO YOU WALK?</h3>
+      </div>
+      <div class="back">
+        <h3>YÜRÜR MÜSÜN?</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>PLAY THE GUITAR</h3>
+      </div>
+      <div class="back">
+        <h3>GİTAR ÇALMAK</h3>
+      </div>
+    </div>
+  </div>
+  
+
+</div>
+
+<button id="floating-button">
+   <a href="test3.html">Teste Başla</a>
+</button> 
+
+<script>
+  function flipCard(card) {
+    card.classList.toggle('flipped');
+  }
+</script>
+
+</body>
+</html>
