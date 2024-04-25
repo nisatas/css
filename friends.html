@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÜNİTE-1 WORDS - Frontend/Backend Cards</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #B6BBC4;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    #unit-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      color: palevioletred;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .card {
+      width: 250px;
+      height: 200px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      margin: 10px;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    .front,
+    .back {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .back {
+      display: none;
+    }
+
+    .card.flipped .front {
+      display: none;
+    }
+
+    .card.flipped .back {
+      display: flex;
+    }
+
+    #floating-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      
+    }
+    #anasayfa {
+      margin-left: 20px;
+      text-decoration: none;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="unit-title">FRİENDS(ARKADAŞLAR)</div>
+
+<div class="card-container">
+  <!-- Create 20 cards statically -->
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>FINE</h3>
+      </div>
+      <div class="back">
+        <h3>İYİ</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>GOOD AFTERNOON</h3>
+      </div>
+      <div class="back">
+        <h3>İYİ ÖĞLENLER</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>GOOD BYE</h3>
+      </div>
+      <div class="back">
+        <h3>HOŞÇAKAL</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>GOOD EVENING</h3>
+      </div>
+      <div class="back">
+        <h3>İYİ AKŞAMLAR</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>GOOD MORNING</h3>
+      </div>
+      <div class="back">
+        <h3>GÜNAYDIN</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>GOOD NIGHT</h3>
+      </div>
+      <div class="back">
+        <h3>İYİ GECELER</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>GREATE</h3>
+      </div>
+      <div class="back">
+        <h3>HARİKA</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>HI</h3>
+      </div>
+      <div class="back">
+        <h3>MERHABA</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>HOW ARE YOU?</h3>
+      </div>
+      <div class="back">
+        <h3>NASILSIN?</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>I AM FINE, THANKS</h3>
+      </div>
+      <div class="back">
+        <h3>İYİYİM, TEŞEKKÜRLER</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>MY NAME IS...</h3>
+      </div>
+      <div class="back">
+        <h3>BENİM ADIM...</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>OKAY</h3>
+      </div>
+      <div class="back">
+        <h3>TAMAM</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>THANK YOU</h3>
+      </div>
+      <div class="back">
+        <h3>TEŞEKKÜRLER</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>WHAT IS YOUR NAME?</h3>
+      </div>
+      <div class="back">
+        <h3>ADIN NE?</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>Handball</h3>
+      </div>
+      <div class="back">
+        <h3>Hentbol</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>Taxi</h3>
+      </div>
+      <div class="back">
+        <h3>Taksi</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>Cheetah</h3>
+      </div>
+      <div class="back">
+        <h3>Çita</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>Panda</h3>
+      </div>
+      <div class="back">
+        <h3>Panda</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>Ambulance</h3>
+      </div>
+      <div class="back">
+        <h3>Ambulans</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>Doctor</h3>
+      </div>
+      <div class="back">
+        <h3>Doktor</h3>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="front">
+        <h3>Chimpanzee</h3>
+      </div>
+      <div class="back">
+        <h3>Şempanze</h3>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<button id="floating-button">
+   <a href="test1.html">Teste Başla</a>
+   <a id="anasayfa" href ="index.html">Anasayfa</a>
+</button> 
+
+<script>
+  function flipCard(card) {
+    card.classList.toggle('flipped');
+  }
+</script>
+
+</body>
+</html>
